@@ -3,7 +3,7 @@
 # Atlas overview
 Atlas is a lightweight, flexible set of user interface components designed to enable developers to quickly and easily integrate native communications experiences into their applications. It was designed and built from the ground up to integrate with the Layer SDK. The Layer SDK provides developers with a simple, object oriented interface to the rich messaging capabilities provided by the Layer platform. Atlas, in turn, provides ready-made UI components that expose these capabilities directly to users.
 
-## Setup
+## Setup (with atlas messenger)
 
 Atlas is built on top of the Layer SDK, and both are required to develop a fully featured messaging experience. The Atlas repository is open source, and you can find it [here on GitHub](https://github.com/layerhq/Atlas-Android) if you would like to take a closer look at the project before starting the integration process.
 
@@ -29,7 +29,7 @@ Clone the Atlas-Android project somewhere outside of your application directory:
 git clone https://github.com/layerhq/Atlas-Android.git
 ```
 
-Copy the `layer-atlas` folder to the root of your Android Studio project. Optionally, can also copy the `layer-atlas-messenger` folder if you would like to build the fully featured Messenger example app included with Atlas.
+Copy the `layer-atlas` folder to the root of your Android Studio project. Also copy the `layer-atlas-messenger` folder to build the fully featured Messenger example app included with Atlas.
 
 ``` sh
 /MyAtlasApp/layer-atlas
@@ -50,12 +50,12 @@ You will need to ensure that the Layer SDK and Atlas modules are compiled into y
     }
     ```
 
-2. Add `layer-atlas` project reference to your app's `build.gradle` (e.g. `/MyAtlasApp/app/build.gradle`) along with the LayerSDK:
+2. Add `layer-atlas` and `layer-atlas-messenger` project reference to your app's `build.gradle` (e.g. `/MyAtlasApp/app/build.gradle`) along with the LayerSDK:
 
     ``` groovy
     dependencies {
         compile project(':layer-atlas')
-
+        compile project(':layer-atlas-messenger')
         compile fileTree(dir: 'libs', include: ['*.jar'])
         compile 'com.android.support:appcompat-v7:22.1.1'
         compile 'com.google.android.gms:play-services-base:6.5.+'
@@ -63,16 +63,9 @@ You will need to ensure that the Layer SDK and Atlas modules are compiled into y
         compile 'org.slf4j:slf4j-api:1.7.7'
     }
     ```
-    **Optional:** If you are interested in building the fully featured Messenger example app included with Atlas, you can add this line to the dependencies: `compile project(':layer-atlas-messenger')`
+   ``
 
-4. Add `:layer-atlas` module to your project's root `settings.gradle` (e.g. `/MyAtlasApp/settings.gradle`):
-
-    ``` groovy
-    include ':app', ':layer-atlas'
-    project(':layer-atlas').projectDir = new File('Atlas-Android/layer-atlas')
-    ```
-
-     **Optional:** If you are building the example Atlas Messenger app, simply add both the `:layer-atlas` and `:layer-atlas-messenger` modules to the `settings.gradle` like so:
+4. Add both the `:layer-atlas` and `layer-atlas-messenger` modules to your project's root `settings.gradle` (e.g. `/MyAtlasApp/settings.gradle`):
 
     ``` groovy
     include ':app', ':layer-atlas', ':layer-atlas-messenger'
