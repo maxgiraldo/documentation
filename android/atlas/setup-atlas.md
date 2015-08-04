@@ -3,12 +3,15 @@
 # Atlas overview
 Atlas is a lightweight, flexible set of user interface components designed to enable developers to quickly and easily integrate native communications experiences into their applications. It was designed and built from the ground up to integrate with the Layer SDK. The Layer SDK provides developers with a simple, object oriented interface to the rich messaging capabilities provided by the Layer platform. Atlas, in turn, provides ready-made UI components that expose these capabilities directly to users.
 
+```emphasis
+To learn more about Atlas, you can build and explore the provided Atlas Messenger app (should add a hyperlink ?), or you can follow this tutorial which covers building a simple app using Atlas from scratch.
+```
 ## Setup (with atlas messenger)
 
 Atlas is built on top of the Layer SDK, and both are required to develop a fully featured messaging experience. The Atlas repository is open source, and you can find it [here on GitHub](https://github.com/layerhq/Atlas-Android) if you would like to take a closer look at the project before starting the integration process.
 
 
-To learn more about Atlas, you can build and explore the provided Atlas Messenger app (should add a hyperlink ?), or you can follow this tutorial which covers building a simple app using Atlas from scratch. We will build an app that will allow you to create conversations between three pre-defined users: the device, simulator, and web interface. With Atlas, the app will have a fully featured GUI experience built with each of the components described above.
+We will build an app that will allow you to create conversations between three pre-defined users: the device, simulator, and web interface. With Atlas, the app will have a fully featured GUI experience built with each of the components described above.
 
 You can also use this tutorial as a starting point for integrating Atlas into your own app. And since Atlas is completely open, you are free to extend or change the default functionality however you want!
 
