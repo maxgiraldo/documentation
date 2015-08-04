@@ -12,19 +12,6 @@ These are the key components of Atlas, and this tutorial will walk you through i
 * Participant - An Interface which allows Atlas classes to render participant information
 * ParticipantProvider - An Interface which provides Atlas classes with a list of potential participants
 
-##Implementing Atlas in a new project
-
-To learn more about these components, you can build and explore the provided Atlas Messenger app, or you can follow this tutorial which covers building a simple app using Atlas from scratch. We will build an app that will allow you to create conversations between three pre-defined users: the device, simulator, and web interface. With Atlas, the app will have a fully featured GUI experience built with each of the components described above.
-
-You can also use this tutorial as a starting point for integrating Atlas into your own app. And since Atlas is completely open, you are free to extend or change the default functionality however you want!
-
-In order to get started, create a new Android Studio project with the following settings
-1. Select the Phone and Tablet platform with a minimum SDK of "API 14: Android 4.0 (IceCreamSandwich)"
-2. Add a Blank Activity to your project
-3. Name the Activity "ConversationActivity" and name the Layout "conversations_screen"
-
-Then follow the steps in the previous section to import the Layer SDK and Atlas into the project.
-
 ###Step 1: Showing the conversations list
 The first thing we want to do is display a list of conversations, and allow the user to create new ones. In `app/main/res/layout/conversations_screen.xml`, configure the layout to show the conversation list and a button for starting new conversations (note, you can import and use your own icons, or use any assets from the layer-atlas-messenger project).
 
@@ -103,6 +90,10 @@ static class User implements Atlas.Participant{
     public User(String id) { name = id; }
     public String getFirstName() { return name; }
     public String getLastName() { return ""; }
+    @Override
+        public Drawable getAvatarDrawable() {
+            return null;
+        }
 }
 
 public void onUserAuthenticated(){
@@ -196,7 +187,7 @@ The next step will be defining a new activity to show the messages in each conve
 </LinearLayout>
 ```
 
-Now we need to create a new class called `MessagesActivity` which will show the layout and initialize each of the components. We will need to handle two different cases: when the user wants to view an existing conversation, and when they want to create a new conversation. To do this, we can pass the selected conversation to this activity through an intent. If no conversation is defined, we make the assumption that a new conversation will be created and show the participant picker.
+Now we need to create a new class called `MessagesActivity` (don't forget to add it to your AndroidManifest.xml!) which will show the layout and initialize each of the components. We will need to handle two different cases: when the user wants to view an existing conversation, and when they want to create a new conversation. To do this, we can pass the selected conversation to this activity through an intent. If no conversation is defined, we make the assumption that a new conversation will be created and show the participant picker.
 
 ```java
 public class MessagesActivity extends ActionBarActivity {
