@@ -19,6 +19,7 @@ You can also use this tutorial as a starting point for integrating Atlas into yo
 ### Step 1: Setting up a new project
 
 In order to get started, create a new Android Studio project with the following settings
+
 1. Select the Phone and Tablet platform with a minimum SDK of "API 14: Android 4.0 (IceCreamSandwich)"
 2. Add a Blank Activity to your project
 3. Name the Activity "ConversationActivity" and name the Layout "conversations_screen"
@@ -78,7 +79,7 @@ You will need to ensure that the Layer SDK and Atlas modules are compiled into y
         compile 'org.slf4j:slf4j-api:1.7.7'
     }
     ```
-   ``
+   
 
 4. Add both the `:layer-atlas` and `layer-atlas-messenger` modules to your project's root `settings.gradle` (e.g. `/MyAtlasApp/settings.gradle`):
 
